@@ -248,6 +248,7 @@ body.dark .contanier .tasks div:hover {
   }
   .contanier {
     width: 100%;
+    margin-top: 150px;
   }
   .modal {
     padding: auto;
