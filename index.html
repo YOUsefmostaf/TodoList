@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="main.css" />
+    <title>Todo List</title>
+  </head>
+  <body class="">
+    <div class="shape"></div>
+
+    <div class="contanier">
+      <div class="todo">
+        <p><i class="fa-solid fa-moon" id="dark"></i></p>
+        <div>
+          <h1>Task list</h1>
+          <input type="text" placeholder="New Task" id="newTask"/>
+          <button type="button" id="add">Add Task</button>
+        </div>
+        <div>
+          <h2>Tasks</h2>
+          <input type="text" placeholder="Filter Tasks" id="filter"/>
+          <div class="tasks" id="tasks">
+          </div>
+          <button type="button" id="clear">Clear All</button>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="modal" id="modal">
+      <h5>
+        Are You Shure You Want To Delete This ?
+      </h5>
+      <button type="button" id="ok">Ok</button>
+      <button type="button" id="cancel">Cancel</button>
+    </div>
+
+    <script src="main.js"></script>
+  </body>
+</html>

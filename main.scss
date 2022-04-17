@@ -1,0 +1,214 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    scroll-behavior: smooth;
+    transition: all 2s ease-in-out;
+}
+
+$background : #ddd;
+$blue : #0d6efd;
+$dark : #212529 ;
+$danger : #dc3545 ;
+$green :#238636;
+
+@mixin repeat($marginBottom , $fontSize) {
+    margin-bottom: $marginBottom;
+    font-size: $fontSize;
+}
+
+body{
+
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    &.dark{
+        background-color: $dark;
+        .contanier{
+            box-shadow: 10px 10px 50px rgba(0, 0, 0, 0.411);
+            input{
+                background-color: $dark;
+            }
+            .tasks{
+                div{
+                    background-color: $dark;
+                    transition: all .5s linear;
+                    box-shadow: -5px -5px 10px rgba(0, 0, 0, 0.411) inset;
+                    &:hover{
+                        background-color: #458cf8;
+                        
+                    }        
+                }
+            }
+        }
+    }
+}
+.fa-moon{
+    color: $dark;
+}
+.fa-sun{
+    color: yellow;
+}
+
+.shape{
+    position: absolute;
+    width: 100%;
+    background-color: $blue;
+    top: 0;
+    height: 200px;
+    border-radius:0 0 100% 30% ;
+    animation: move 5s ease-in-out infinite alternate;
+}
+.modal{
+    color: white;
+    position: absolute;
+    background-color: $blue;
+    width: 100%;
+    height: 200px;
+    border-radius: 100% 100% 0 0;
+    text-align: center;
+    padding-top: 40px;
+    bottom: 0;
+    transform: translateY(100%);
+    z-index: 1000;
+    button{
+        margin-top: 30px;
+        padding: 10px 20px;
+        border-radius: 7px;
+        outline: none;
+        border: 2px solid $blue;
+        color: white;
+        background-color: $blue;
+        margin-bottom: 15px;
+        cursor: pointer;
+        &:first-of-type{
+            background-color: $danger;
+        }
+        &:last-of-type{
+            background-color: $dark;
+        }
+    }
+}
+
+.contanier{
+    &::-webkit-scrollbar {
+        width: 3px;
+      }
+       
+      &::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      }
+       
+      &::-webkit-scrollbar-thumb {
+        background-color: $blue;
+        outline: 1px solid $blue;
+      }
+    margin-top: 250px;
+    width: 80%;
+    height: 70%;
+    overflow: auto;
+    box-shadow: 10px 10px 50px #ddd;
+    padding: 20px;
+    border-radius: 10px;
+    .todo{
+        position: relative;
+        > p{
+            position: absolute;
+            right: 0;
+            font-size: 25px;
+            cursor: pointer;
+        }
+    }
+    > div:first-of-type{
+        margin-bottom: 15px;
+    }
+    h1{
+        color: $blue;
+        @include repeat(15px,40px )
+    }
+    input[type=text]{
+        width: 100%;
+        outline: none;
+        border: none;
+        border-bottom: 2px solid #ddd;
+        padding: 0 20px 10px ;
+        color: $blue;
+        @include repeat(15px,20px )
+    }
+    button{
+        padding: 10px 20px;
+        border-radius: 7px;
+        outline: none;
+        border: 2px solid $blue;
+        color: white;
+        background-color: $blue;
+        margin-bottom: 15px;
+        cursor: pointer;
+        &:hover{
+            background-color: #3685fa;
+        }
+    }
+    h2{
+        color: $blue;
+        @include repeat(15px,20px );
+    }
+    .tasks{
+        margin-top: 15px;
+        div{
+            transition: all .5s;
+            background-color: $blue;
+            @include repeat(15px, 30px );
+            padding:20px;
+            border-radius: 5px;
+            color: white;
+            box-shadow: -5px -5px 10px #ddd inset;
+            overflow: visible;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            &:hover{
+                background-color: $dark;
+                box-shadow: -5px -5px 10px black inset;
+            }
+
+            span{
+                background-color: $danger;
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                text-align: center;
+                line-height: 50px;
+                cursor: pointer;
+            }
+            
+        }
+    }
+}
+
+@keyframes move {
+    0%{
+        border-radius:0 0 100% ;
+    }
+    100%{
+        border-radius:0 0 30% 100% ;
+    }  
+}
+
+@media(max-width:767px)
+{
+    body{
+        padding: 5px;
+    }
+    .shape{
+        height: 100px;
+    }
+    .contanier{
+        width: 100%;
+    }
+    .modal{
+        padding: auto;
+    }
+}
